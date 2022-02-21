@@ -1,5 +1,3 @@
-<p>Kimen Backend - Curso</p>
-
 <?php
 
 include('db.php');
