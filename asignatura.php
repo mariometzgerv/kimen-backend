@@ -25,4 +25,13 @@ if (isset($_GET['profesor']))
 	echo json_encode($data);
 }
 
+if (isset($_GET['profesor']) AND isset($_GET['asignatura']) AND isset($_GET['vigente']))
+{
+	$query = 'CALL `Actualizar_Asignatura_Profesor`(' . $_GET['profesor'] . ', ' . $_GET['asignatura'] . ', ' . $_GET['vigente'] . ');';
+	$result = mysqli_query($conn, $query);
+	$data = mysqli_fetch_all($result, MYSQLI_ASSOC);
+	
+	echo json_encode($data);
+}
+
 ?>

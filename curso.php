@@ -52,4 +52,22 @@ if (isset($_GET['profesor']))
 	echo json_encode($data);
 }
 
+if (isset($_GET['profesor']) AND isset($_GET['curso']) AND isset($_GET['vigente']))
+{
+	$query = 'CALL `Actualizar_Cursos_Profesor`(' . $_GET['profesor'] . ', ' . $_GET['curso'] . ', ' . $_GET['vigente'] . ');';
+	$result = mysqli_query($conn, $query);
+	$data = mysqli_fetch_all($result, MYSQLI_ASSOC);
+	
+	echo json_encode($data);
+}
+
+if (isset($_GET['deshabilitar_asignatura_profesor']))
+{
+	$query = 'CALL `Deshabilitar_Cursos_Asignatura_Profesor`(' . $_GET['deshabilitar_asignatura_profesor'] . ');';
+	$result = mysqli_query($conn, $query);
+	$data = mysqli_fetch_all($result, MYSQLI_ASSOC);
+	
+	echo json_encode($data);
+}
+
 ?>
