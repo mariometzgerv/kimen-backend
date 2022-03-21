@@ -18,16 +18,13 @@ if (isset($_GET['info']))
 
 if (isset($_GET['profesor']))
 {
-	$query = 'CALL `Obtener_Asignatura_Profesor`(' . $_GET['profesor'] . ');';
-	$result = mysqli_query($conn, $query);
-	$data = mysqli_fetch_all($result, MYSQLI_ASSOC);
+	$query = '';
 	
-	echo json_encode($data);
-}
-
-if (isset($_GET['profesor']) AND isset($_GET['asignatura']) AND isset($_GET['vigente']))
-{
-	$query = 'CALL `Actualizar_Asignatura_Profesor`(' . $_GET['profesor'] . ', ' . $_GET['asignatura'] . ', ' . $_GET['vigente'] . ');';
+	if (isset($_GET['asignatura']) AND isset($_GET['vigente']))
+		$query = 'CALL `Actualizar_Asignatura_Profesor`(' . $_GET['profesor'] . ', ' . $_GET['asignatura'] . ', ' . $_GET['vigente'] . ');';
+	else
+		$query = 'CALL `Obtener_Asignatura_Profesor`(' . $_GET['profesor'] . ');';
+	
 	$result = mysqli_query($conn, $query);
 	$data = mysqli_fetch_all($result, MYSQLI_ASSOC);
 	
