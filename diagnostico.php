@@ -9,7 +9,7 @@ header('Allow: GET, POST, OPTIONS, PUT, DELETE');
 
 if (isset($_GET['info']))
 {
-	$query = 'CALL `Obtener_Diagnostico`();';
+	$query = 'CALL `Obtener_Diagnosticos`();';
 	$result = mysqli_query($conn, $query);
 	$data = mysqli_fetch_all($result, MYSQLI_ASSOC);
 	
