@@ -7,7 +7,7 @@ header('Access-Control-Allow-Headers: X-API-KEY, Origin, X-Requested-With, Conte
 header('Access-Control-Allow-Methods: GET, POST, OPTIONS, PUT, DELETE');
 header('Allow: GET, POST, OPTIONS, PUT, DELETE');
 
-if (isset($_GET['info']))
+if (isset($_GET['diagnostico']))
 {
 	$query = 'CALL `Obtener_Diagnosticos`();';
 	$result = mysqli_query($conn, $query);
@@ -19,6 +19,15 @@ if (isset($_GET['info']))
 if (isset($_GET['sanguineo']))
 {
 	$query = 'CALL `Obtener_Grupo_Sanguineo`();';
+	$result = mysqli_query($conn, $query);
+	$data = mysqli_fetch_all($result, MYSQLI_ASSOC);
+	
+	echo json_encode($data);
+}
+
+if (isset($_GET['medica']))
+{
+	$query = 'CALL `Obtener_Info_Medica`();';
 	$result = mysqli_query($conn, $query);
 	$data = mysqli_fetch_all($result, MYSQLI_ASSOC);
 	
