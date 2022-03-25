@@ -16,4 +16,13 @@ if (isset($_GET['info']))
 	echo json_encode($data);
 }
 
+if (isset($_GET['sanguineo']))
+{
+	$query = 'CALL `Obtener_Grupo_Sanguineo`();';
+	$result = mysqli_query($conn, $query);
+	$data = mysqli_fetch_all($result, MYSQLI_ASSOC);
+	
+	echo json_encode($data);
+}
+
 ?>
