@@ -34,4 +34,13 @@ if (isset($_GET['medica']))
 	echo json_encode($data);
 }
 
+if (isset($_GET['tallas']))
+{
+	$query = 'CALL `Obtener_Tallas`();';
+	$result = mysqli_query($conn, $query);
+	$data = mysqli_fetch_all($result, MYSQLI_ASSOC);
+	
+	echo json_encode($data);
+}
+
 ?>
