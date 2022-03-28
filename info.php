@@ -52,4 +52,22 @@ if (isset($_GET['social']))
 	echo json_encode($data);
 }
 
+if (isset($_GET['tipo']))
+{
+	$query = 'CALL `Obtener_Tipo_Comunicacion`();';
+	$result = mysqli_query($conn, $query);
+	$data = mysqli_fetch_all($result, MYSQLI_ASSOC);
+	
+	echo json_encode($data);
+}
+
+if (isset($_GET['preferencia']))
+{
+	$query = 'CALL `Obtener_Preferencia_Comunicacion`();';
+	$result = mysqli_query($conn, $query);
+	$data = mysqli_fetch_all($result, MYSQLI_ASSOC);
+	
+	echo json_encode($data);
+}
+
 ?>
