@@ -1,1 +1,1 @@
-<p>Kimen Online Backend v0.1.5</p>
+<p>Kimen Online Backend v0.1.6</p>

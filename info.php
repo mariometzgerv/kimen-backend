@@ -43,4 +43,13 @@ if (isset($_GET['talla']))
 	echo json_encode($data);
 }
 
+if (isset($_GET['social']))
+{
+	$query = 'CALL `Obtener_Desarrollo_Social`();';
+	$result = mysqli_query($conn, $query);
+	$data = mysqli_fetch_all($result, MYSQLI_ASSOC);
+	
+	echo json_encode($data);
+}
+
 ?>
